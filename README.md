@@ -11,14 +11,23 @@ These files include the codes and data to re-produce the results of the work  _R
 - [precession](https://dgerosa.github.io/precession)
 
 #### Data
-The events posterior samples are adopted from the [Gravitational Wave Open Science Center](https://www.gw-openscience.org/eventapi/html/GWTC/), here `C01:Mixed` samples are used for analysis and stored in `data/GWTC3_BBH_Mixed_5000.pickle`. The injection campaigns `data/o1+o2+o3_bbhpop_real+semianalytic-LIGO-T2100377-v2` is download from [Abbot et al.](https://doi.org/10.5281/zenodo.5546676)
+The events posterior samples are adopted from the [Gravitational Wave Open Science Center](https://www.gw-openscience.org/eventapi/html/GWTC/), here `C01:Mixed` samples are used for analysis and stored in `data/GWTC3_BBH_Mixed_5000.pickle`. 
+
+The injection campaigns `data/o1+o2+o3_bbhpop_real+semianalytic-LIGO-T2100377-v2.hdf5`
+Note, one should first download the injection campaign
+`o1+o2+o3_bbhpop_real+semianalytic-LIGO-T2100377-v2.hdf5` from [Abbot et al.](https://doi.org/10.5281/zenodo.5546676), 
+and set it to `data/`
   
 #### Hierarchical Bayesian inference
 - Inference with our main model: run the python script `inference.py` , and specify the single-component model or double-component model by setting `label='Single_spin'` or `label='Double_spin'` in the script.
 
 - Inference with the comparing models: run the python script `compared_inference.py`, and specify the population model *PS&LinearCorrelation*, *PS&DoubleSpin*, *PS&DefaultSpin*, or *PP&DefaultSpin* by setting `label='PS_linear'`, `label='PS_bimodal'`,`label='PS_default'`, or `label='PP_default'` in the script.
 
-The results will be saved to `results`
+The inferred results `*.json` will be saved to `results`
+
+#### Results
+- `Double_spin_post.pickle` is the posterior samples inferred by the double-component model.
+- `Double_spin_informed.pickle` is the events' samples reweighed by the double-component model.
 
 #### Generate figures
 Run the python script `figure_script.py`
