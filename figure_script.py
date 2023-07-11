@@ -19,7 +19,7 @@ with open('./{}/Double_spin_result.json'.format(outdir)) as a:
     data=json.load(a)
 post=data['posterior']['content']
 
-with open('./Double_spin_post.pickle', 'wb') as fp:
+with open('./{}/Double_spin_post.pickle'.format(outdir), 'wb') as fp:
     pickle.dump((post), fp)
 """
 
