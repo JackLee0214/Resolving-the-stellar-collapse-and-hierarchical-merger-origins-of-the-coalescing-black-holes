@@ -5,6 +5,7 @@ import numpy as np
 from plot_utils import pop_informed_samples, plot_ma_dist, plot_ma_sample
 import matplotlib.pyplot as plt
 from pandas.core.frame import DataFrame
+import pickle
 
 outdir='results'
 label='Double_spin'
@@ -13,9 +14,14 @@ fig_dir='figures'
 ##################################################
 #read data
 ##################################################
+"""
 with open('./{}/Double_spin_result.json'.format(outdir)) as a:
     data=json.load(a)
 post=data['posterior']['content']
+"""
+
+with open('./{}/Double_spin_post.pickle'.format(outdir), 'rb') as fp:
+    post = pickle.load(fp)
 
 ##################################################
 #plot Figure 1
