@@ -8,10 +8,10 @@ These files include the codes and data to re-produce the results of the work  _R
 #### Main requirements
 - [BILBY](https://git.ligo.org/lscsoft/bilby)
 - [PyMultiNest](https://johannesbuchner.github.io/PyMultiNest/install.html)
-- [precession](https://dgerosa.github.io/precession)
 
 #### Data
 The events posterior samples are adopted from the [Gravitational Wave Open Science Center](https://www.gw-openscience.org/eventapi/html/GWTC/), here `C01:Mixed` samples are used for analysis and stored in `data/GWTC3_BBH_Mixed_5000.pickle`. 
+We adopt 5000 samples for per event. For events with initial sample sizes less than 5000, the posterior samples are reused.
 
 The injection campaigns `data/o1+o2+o3_bbhpop_real+semianalytic-LIGO-T2100377-v2.hdf5`
 Note, one should first download the injection campaign
@@ -19,15 +19,15 @@ Note, one should first download the injection campaign
 and set it to `data/`
   
 #### Hierarchical Bayesian inference
-- Inference with our main model: run the python script `inference.py` , and specify the single-component model or double-component model by setting `label='Single_spin'` or `label='Double_spin'` in the script.
+- Inference with our main model: run the python script `inference.py` , and specify the One-component model or Two-component model by setting `label='Single_spin'` or `label='Double_spin'` in the script.
 
 - Inference with the comparing models: run the python script `compared_inference.py`, and specify the population model *PS&LinearCorrelation*, *PS&DoubleSpin*, *PS&DefaultSpin*, or *PP&DefaultSpin* by setting `label='PS_linear'`, `label='PS_bimodal'`,`label='PS_default'`, or `label='PP_default'` in the script.
 
 The inferred results `*.json` will be saved to `results`
 
 #### Results
-- `Double_spin_post.pickle` is the posterior samples inferred by the double-component model.
-- `Double_spin_informed.pickle` is the events' samples reweighed by the double-component model.
+- `Double_spin_post.pickle` is the posterior samples inferred by the Two-component model.
+- `Double_spin_informed.pickle` is the events' samples reweighed by the Two-component model.
 
 #### Generate figures
 Run the python script `figure_script.py`
