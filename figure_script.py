@@ -7,8 +7,6 @@ import matplotlib.pyplot as plt
 from pandas.core.frame import DataFrame
 import pickle
 
-pre_see=1
-
 outdir='results'
 label='Double_spin'
 add_label=''
