@@ -162,13 +162,13 @@ post=data['posterior']['content']
 with open('./{}/Single_step_post.pickle'.format(outdir), 'wb') as fp:
     pickle.dump((post), fp)
 """
-with open('./{}/Double_spin_post.pickle'.format(outdir), 'rb') as fp:
+with open('./{}/Single_step_post.pickle'.format(outdir), 'rb') as fp:
     post = pickle.load(fp)
 
 colors=["#08306b","#4d9221","#e31a1c",'orange']
 size=5000
 filename='./{}/Single_step_dist.pdf'.format(fig_dir)
-plot_step_ma_dist(post,colors,size,filename,plot_inj=False)
+plot_step_ma_dist(post,colors,size,filename)
 
 filename='./{}/Single_step_spin_corner.pdf'.format(fig_dir)
 params=['mu_a1','sigma_a1','mu_a2','sigma_t','zeta','md']
